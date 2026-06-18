@@ -1,0 +1,46 @@
+# Dependencies
+node_modules/
+
+# Build artifacts
+.next/
+dist/
+out/
+build/
+
+# Environment files
+.env
+.env.local
+.env.production
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# Test coverage
+coverage/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Next.js traces
+trace
+trace-build
+
+# Windows deployment tools
+PsExec64.exe
+create-task.bat
+pm2-startup.bat
+
+# Claude Code local settings
+.claude/
+settings.local.json
+
+# Temp files
+temp_query.js
+*.tmp
+
+# Runtime data
+pids/
+*.pid

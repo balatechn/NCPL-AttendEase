@@ -1,0 +1,188 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+/* ===== Light Theme (default) — Blue Glassmorphism ===== */
+:root {
+  --bg-primary: #e8edf5;
+  --bg-secondary: #eef2f9;
+  --bg-card: rgba(255,255,255,0.55);
+  --bg-card-hover: rgba(255,255,255,0.7);
+  --bg-input: rgba(255,255,255,0.6);
+  --bg-input-focus: rgba(255,255,255,0.8);
+  --bg-header: rgba(238,242,249,0.8);
+  --bg-sidebar: rgba(238,242,249,0.92);
+  --bg-overlay: rgba(0,0,0,0.3);
+  --bg-accent: linear-gradient(135deg, #3b82f6, #1d4ed8);
+  --bg-accent-flat: #2563eb;
+  --bg-accent-hover: linear-gradient(135deg, #2563eb, #1e40af);
+  --bg-active-nav: rgba(59,130,246,0.1);
+  --bg-tab: rgba(255,255,255,0.4);
+  --bg-tab-active: rgba(255,255,255,0.7);
+  --bg-surface: rgba(255,255,255,0.35);
+  --bg-surface-hover: rgba(255,255,255,0.5);
+  --text-primary: #1e293b;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+  --text-faint: #94a3b8;
+  --text-on-accent: #ffffff;
+  --border-color: rgba(255,255,255,0.6);
+  --border-light: rgba(255,255,255,0.4);
+  --shadow-sm: 0 1px 3px rgba(31,38,135,0.06);
+  --shadow-md: 0 4px 12px rgba(31,38,135,0.08);
+  --shadow-lg: 0 8px 32px rgba(31,38,135,0.12);
+  --brand-text: #2563eb;
+  --scrollbar-thumb: rgba(148,163,184,0.4);
+  --scrollbar-hover: rgba(148,163,184,0.6);
+  --select-bg: #ffffff;
+  --select-text: #1e293b;
+  --toast-bg: #1e293b;
+  --toast-text: #ffffff;
+}
+
+/* ===== Dark Theme ===== */
+.dark {
+  --bg-primary: #0a0e1a;
+  --bg-secondary: #0f1629;
+  --bg-card: rgba(255,255,255,0.05);
+  --bg-card-hover: rgba(255,255,255,0.08);
+  --bg-input: rgba(255,255,255,0.05);
+  --bg-input-focus: rgba(255,255,255,0.08);
+  --bg-header: rgba(10,14,26,0.7);
+  --bg-sidebar: rgba(10,14,26,0.95);
+  --bg-overlay: rgba(0,0,0,0.6);
+  --bg-accent: #1a2e4a;
+  --bg-accent-flat: #1a2e4a;
+  --bg-accent-hover: #243b5c;
+  --bg-active-nav: rgba(26,46,74,0.4);
+  --bg-tab: rgba(255,255,255,0.04);
+  --bg-tab-active: rgba(255,255,255,0.08);
+  --bg-surface: rgba(255,255,255,0.03);
+  --bg-surface-hover: rgba(255,255,255,0.05);
+  --text-primary: #f0f4ff;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --text-faint: #475569;
+  --text-on-accent: #ffffff;
+  --border-color: rgba(255,255,255,0.08);
+  --border-light: rgba(255,255,255,0.04);
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.2);
+  --shadow-md: 0 4px 6px rgba(0,0,0,0.3);
+  --shadow-lg: 0 10px 15px rgba(0,0,0,0.4);
+  --brand-text: #60a5fa;
+  --scrollbar-thumb: rgba(148,163,184,0.3);
+  --scrollbar-hover: rgba(148,163,184,0.5);
+  --select-bg: #1e293b;
+  --select-text: #e2e8f0;
+  --toast-bg: #1e293b;
+  --toast-text: #ffffff;
+}
+
+body {
+  color: var(--text-primary);
+  font-family: 'Inter', system-ui, sans-serif;
+  min-height: 100vh;
+  background: var(--bg-primary);
+  transition: background 0.3s, color 0.3s;
+}
+
+@layer utilities {
+  .glass {
+    @apply backdrop-blur-xl;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-lg);
+    -webkit-backdrop-filter: blur(24px);
+  }
+  .glass-card {
+    @apply backdrop-blur-xl rounded-2xl p-6;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-lg);
+    -webkit-backdrop-filter: blur(24px);
+  }
+  .card {
+    @apply backdrop-blur-xl rounded-2xl p-6;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-lg);
+    -webkit-backdrop-filter: blur(24px);
+  }
+
+  .btn-primary {
+    @apply font-semibold py-2.5 px-5 rounded-xl transition-all duration-300 active:scale-95;
+    color: var(--text-on-accent);
+    background: var(--bg-accent);
+    box-shadow: 0 4px 20px rgba(37,99,235,0.3);
+  }
+  .btn-primary:hover {
+    background: var(--bg-accent-hover);
+    box-shadow: 0 6px 28px rgba(37,99,235,0.4);
+    transform: translateY(-1px);
+  }
+  .btn-secondary {
+    @apply backdrop-blur-md font-medium py-2.5 px-5 rounded-xl transition-all duration-200;
+    color: var(--text-secondary);
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+  }
+  .btn-secondary:hover {
+    background: var(--bg-surface-hover);
+    color: var(--text-primary);
+  }
+  .btn-danger {
+    @apply text-white font-medium py-2.5 px-5 rounded-xl transition-all duration-200 active:scale-95;
+    background: #dc2626;
+    box-shadow: 0 4px 15px rgba(220,38,38,0.3);
+  }
+
+  .input-field {
+    @apply w-full px-4 py-3 rounded-xl outline-none transition-all duration-200;
+    color: var(--text-primary);
+    background: var(--bg-input);
+    border: 1px solid var(--border-color);
+    backdrop-filter: blur(10px);
+  }
+  .input-field::placeholder { color: var(--text-faint); }
+  .input-field:focus {
+    border-color: rgba(59,130,246,0.5);
+    box-shadow: 0 0 0 3px rgba(59,130,246,0.15);
+    background: var(--bg-input-focus);
+  }
+
+  .status-present  { background: rgba(34,197,94,0.15);  color: #16a34a; }
+  .status-absent   { background: rgba(239,68,68,0.15);  color: #dc2626; }
+  .status-half-day { background: rgba(6,182,212,0.15);  color: #0891b2; }
+  .status-leave    { background: rgba(59,130,246,0.15);  color: #2563eb; }
+  .status-holiday  { background: rgba(234,179,8,0.15); color: #ca8a04; }
+  .status-weekend  { background: rgba(148,163,184,0.1);  color: #64748b; }
+  .status-incomplete { background: rgba(249,115,22,0.15); color: #ea580c; }
+  .status-late     { background: rgba(245,158,11,0.15); color: #d97706; }
+
+  .gradient-text {
+    @apply font-bold;
+    color: var(--brand-text);
+  }
+}
+
+.dark .status-present  { color: #4ade80; }
+.dark .status-absent   { color: #f87171; }
+.dark .status-half-day { color: #22d3ee; }
+.dark .status-leave    { color: #60a5fa; }
+.dark .status-holiday  { color: #facc15; }
+.dark .status-weekend  { color: #94a3b8; }
+.dark .status-incomplete { color: #fb923c; }
+.dark .status-late     { color: #fbbf24; }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--scrollbar-thumb); border-radius: 999px; }
+::-webkit-scrollbar-thumb:hover { background: var(--scrollbar-hover); }
+
+select option {
+  background: var(--select-bg);
+  color: var(--select-text);
+}
