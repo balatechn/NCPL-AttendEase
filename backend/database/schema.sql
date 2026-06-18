@@ -30,6 +30,7 @@ CREATE TABLE IF NOT EXISTS employees (
   reporting_manager_id  INTEGER REFERENCES employees(id),
   date_of_joining       DATE,
   is_active             BOOLEAN DEFAULT true,
+  must_change_password  BOOLEAN DEFAULT false,
   azure_oid             VARCHAR(100),
   biometric_id          VARCHAR(100),
   created_at            TIMESTAMPTZ DEFAULT NOW(),
